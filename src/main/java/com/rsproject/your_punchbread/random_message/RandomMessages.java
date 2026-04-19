@@ -13,6 +13,8 @@ public class RandomMessages {
 
     private String message;
 
+    public RandomMessages() {}
+
     public RandomMessages(String message) {
         this.message = message;
     }
