@@ -17,5 +17,5 @@ public interface MoodRepository extends JpaRepository<Mood, Integer> {
 
     List<Mood> findByMood(Mood.moodTypes mood);
 
-    List<Mood> findByMoodTime(LocalDateTime moodTime);
+    List<Mood> findByMoodTimeBetween(LocalDateTime startTime,  LocalDateTime endTime);
 }

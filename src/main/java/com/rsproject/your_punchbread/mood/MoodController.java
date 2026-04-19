@@ -1,7 +1,9 @@
 package com.rsproject.your_punchbread.mood;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +44,7 @@ public class MoodController {
     }
 
     @GetMapping("/get-moods-date/{date}")
-    public List<Mood> getMoodsByDate(@PathVariable LocalDateTime date) {
+    public List<Mood> getMoodsByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return moodService.getMoodsByDate(date);
     }
 }

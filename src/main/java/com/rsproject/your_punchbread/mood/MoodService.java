@@ -2,7 +2,9 @@ package com.rsproject.your_punchbread.mood;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,8 +55,10 @@ public class MoodService {
         return moodRepo.findByMood(mood);
     }
 
-    public List<Mood> getMoodsByDate(LocalDateTime date) {
-        return moodRepo.findByMoodTime(date);
+    public List<Mood> getMoodsByDate(LocalDate date) {
+        LocalDateTime startDay = date.atStartOfDay();
+        LocalDateTime endDay = date.atTime(LocalTime.MAX);
+        return moodRepo.findByMoodTimeBetween(startDay, endDay);
     }
 
 }
