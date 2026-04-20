@@ -25,8 +25,13 @@ public class RandomMessageService {
     }
 
     public void updateMessageById(Integer id, String newMessage) {
-        RandomMessages randomMessages = randomMessageRepos.findById(id).get();
-        randomMessages.setMessage(newMessage);
-        randomMessageRepos.save(randomMessages);
+        randomMessageRepos.findById(id).ifPresent(message -> {
+            message.setMessage(newMessage);
+            randomMessageRepos.save(message);
+        });
+    }
+
+    public RandomMessages getRandomMessage() {
+        return randomMessageRepos.findRandomMessage();
     }
 }

@@ -47,4 +47,5 @@ public class MoodController {
     public List<Mood> getMoodsByDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return moodService.getMoodsByDate(date);
     }
+
 }

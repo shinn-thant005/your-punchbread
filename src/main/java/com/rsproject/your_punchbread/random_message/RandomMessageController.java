@@ -31,8 +31,13 @@ public class RandomMessageController {
     }
 
     @PutMapping("/update-message/{id}")
-    public String updateMessage(@PathVariable Integer id, RandomMessages newMessages) {
+    public String updateMessage(@PathVariable Integer id, @RequestBody RandomMessages newMessages) {
         randomMessageService.updateMessageById(id, newMessages.getMessage());
         return "Message with Id: " +  id + " updated!";
+    }
+
+    @GetMapping("/get-random-message")
+    public RandomMessages getRandomMessage() {
+        return  randomMessageService.getRandomMessage();
     }
 }
