@@ -19,9 +19,13 @@ public class AppStatusService {
         AppStatus status = getStatus();
         int newIndex = status.getCurrentPhotoIndex() + change;
 
-        if (newIndex >= 0 && newIndex <= 20) {
-            status.setCurrentPhotoIndex(newIndex);
-            appStatusRepo.save(status);
+        // Clamp the value between 0 and 20
+        if (newIndex < 0) {
+            newIndex = 0;
+        } else if (newIndex > 20) {
+            newIndex = 20;
         }
+        status.setCurrentPhotoIndex(newIndex);
+        appStatusRepo.save(status);
     }
 }
