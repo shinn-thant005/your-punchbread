@@ -18,7 +18,7 @@ public class KissService {
     public void kiss() {
         Kiss kiss = new Kiss(LocalDateTime.now());
         kissRepo.save(kiss);
-        appStatusService.updatePhotoIndex(1);
+        appStatusService.updatePhotoIndex(-1);
 
     }
 
