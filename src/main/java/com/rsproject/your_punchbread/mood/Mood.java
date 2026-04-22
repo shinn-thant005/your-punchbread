@@ -10,7 +10,7 @@ public class Mood {
     private Integer id;
 
     public enum moodTypes {
-        HAPPY, SAD, BORED, ENERGETIC, ANXIOUS, CALM
+        HAPPY, SAD, BORED, ENERGETIC, ANXIOUS, CALM, MAD, MISSING
     }
 
     @Enumerated(EnumType.STRING)

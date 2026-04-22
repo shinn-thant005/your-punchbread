@@ -21,4 +21,10 @@ public class AdminResponseController {
     public AdminResponse getCurrentResponse() {
         return responseService.getResponse();
     }
+
+    @PostMapping("/delete")
+    public String deleteResponse() {
+        responseService.deleteResponse();
+        return "The response has been deleted!";
+    }
 }

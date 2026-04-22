@@ -26,4 +26,8 @@ public class AdminResponseService {
         response.setResponseDate(LocalDateTime.now());
         responseRepo.save(response);
     }
+
+    public void deleteResponse() {
+        responseRepo.deleteById(1);
+    }
 }
