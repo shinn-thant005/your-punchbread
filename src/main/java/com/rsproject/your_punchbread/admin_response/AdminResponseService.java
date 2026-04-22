@@ -13,8 +13,9 @@ public class AdminResponseService {
     }
 
     public AdminResponse getResponse() {
+        // Change "Hey there!" to "No active message"
         return responseRepo.findById(1).orElseGet(() ->
-                responseRepo.save(new AdminResponse("Hey there!", 0, LocalDateTime.now()))
+                responseRepo.save(new AdminResponse("No active message", 0, LocalDateTime.now()))
         );
     }
 

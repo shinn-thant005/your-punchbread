@@ -21,6 +21,11 @@ public class AdminResponse {
         this.responseMessage = responseMessage;
     }
 
+    public AdminResponse(String responseMessage, int responsePhotoIndex) {
+        this.responseMessage = responseMessage;
+        this.responsePhotoIndex = responsePhotoIndex;
+    }
+
     public LocalDateTime getResponseDate() {
         return responseDate;
     }
