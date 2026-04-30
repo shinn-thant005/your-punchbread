@@ -30,4 +30,10 @@ public class AdminResponseService {
     public void deleteResponse() {
         responseRepo.deleteById(1);
     }
+
+    public void  resetAllStats() {
+        responseRepo.resetKiss();
+        responseRepo.resetPunch();
+        responseRepo.resetMood();
+    }
 }

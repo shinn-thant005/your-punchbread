@@ -22,9 +22,15 @@ public class AdminResponseController {
         return responseService.getResponse();
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public String deleteResponse() {
         responseService.deleteResponse();
         return "The response has been deleted!";
+    }
+
+    @PostMapping("reset-all-stats")
+    public String resetStats() {
+        responseService.resetAllStats();
+        return "The response has been reset!";
     }
 }
