@@ -19,6 +19,9 @@ public class Kiss {
         this.kissTime = kissTime;
     }
 
+    public Kiss() {
+    }
+
     public LocalDateTime getKissTime() {
         return kissTime;
     }

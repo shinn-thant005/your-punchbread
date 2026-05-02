@@ -19,6 +19,8 @@ public class Punch {
         this.punchTime = punchTime;
     }
 
+    public Punch() {}
+
     public LocalDateTime getPunchTime() {
         return punchTime;
     }
