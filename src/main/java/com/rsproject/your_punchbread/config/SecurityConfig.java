@@ -41,7 +41,8 @@ public class SecurityConfig {
 
                         /* -- Shared Endpoints -- */
                         .requestMatchers(
-                                "/api/v1/status",
+                                "/api/v1/dashboard",
+                                "/api/v1/status", // can delete this since it is replaced by "/api/v1/dashboard"
                                 "/api/v1/get-total-kiss-week",
                                 "/api/v1/get-total-punch-week",
                                 "/api/v1/stats-30-days"
