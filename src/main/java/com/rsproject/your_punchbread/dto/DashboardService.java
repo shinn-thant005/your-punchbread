@@ -39,4 +39,16 @@ public class DashboardService {
                 adminResponseService.getResponse()
         );
     }
+
+    public AdminDashboardDTO getAdminDashboardData() {
+        return new AdminDashboardDTO(
+                kissService.getTotalKiss(),
+                punchService.getTotalPunch(),
+                kissService.getTotalKissWeek(),
+                punchService.getTotalPunchWeek(),
+                moodService.getMoodStatistics(),
+                appStatusService.getStatus().getCurrentPhotoIndex(),
+                adminResponseService.getResponse()
+        );
+    }
 }

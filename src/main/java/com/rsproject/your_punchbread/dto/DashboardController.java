@@ -17,4 +17,9 @@ public class DashboardController {
     public DashboardDTO getDashboard() {
         return dashboardService.getDashboardData();
     }
+
+    @GetMapping("/admin")
+    public AdminDashboardDTO getAdminDashboard() {
+        return dashboardService.getAdminDashboardData();
+    }
 }
