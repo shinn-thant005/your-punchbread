@@ -19,14 +19,15 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (userRepository.findByUsername("admin").isEmpty()) {
-            // Using the new constructor we just added
+        // Fix 1: Check for "shinn" instead of "admin"
+        if (userRepository.findByUsername("shinn").isEmpty()) {
             User admin = new User("shinn", passwordEncoder.encode("admin123"), "ROLE_ADMIN");
             userRepository.save(admin);
             System.out.println("Admin account created.");
         }
 
-        if (userRepository.findByUsername("girlfriend").isEmpty()) {
+        // Fix 2: Check for "misu" instead of "girlfriend"
+        if (userRepository.findByUsername("misu").isEmpty()) {
             User gf = new User("misu", passwordEncoder.encode("misu026469"), "ROLE_USER");
             userRepository.save(gf);
             System.out.println("Girlfriend account created.");
