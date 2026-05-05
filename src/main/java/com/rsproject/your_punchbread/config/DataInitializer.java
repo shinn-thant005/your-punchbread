@@ -19,18 +19,25 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Fix 1: Check for "shinn" instead of "admin"
-        if (userRepository.findByUsername("shinn").isEmpty()) {
-            User admin = new User("shinn", passwordEncoder.encode("admin123"), "ROLE_ADMIN");
-            userRepository.save(admin);
-            System.out.println("Admin account created.");
-        }
+        // Force update for "shinn" to ensure the password is correct
+        userRepository.findByUsername("shinn").ifPresentOrElse(
+                user -> {
+                    user.setPassword(passwordEncoder.encode("admin123"));
+                    userRepository.save(user);
+                    System.out.println("Admin (shinn) password updated.");
+                },
+                () -> {
+                    User admin = new User("shinn", passwordEncoder.encode("admin123"), "ROLE_ADMIN");
+                    userRepository.save(admin);
+                    System.out.println("Admin (shinn) created.");
+                }
+        );
 
-        // Fix 2: Check for "misu" instead of "girlfriend"
+        // Standard check for "misu"
         if (userRepository.findByUsername("misu").isEmpty()) {
             User gf = new User("misu", passwordEncoder.encode("misu026469"), "ROLE_USER");
             userRepository.save(gf);
-            System.out.println("Girlfriend account created.");
+            System.out.println("Girlfriend (misu) created.");
         }
     }
 }
